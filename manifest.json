@@ -1,0 +1,34 @@
+{
+  "$schema": "../../dist/mcpb-manifest.schema.json",
+  "manifest_version": "0.1",
+  "name": "mcp-orchestrator-bridge",
+  "display_name": "MCP Orchestrator Bridge",
+  "version": "1.0.0",
+  "description": "Bridge to MCP Orchestrator for managing multiple MCP servers",
+  "long_description": "Provides a local bridge to MCP Orchestrator running on network, enabling unified access to all configured MCP servers through a single extension.",
+  "author": {
+    "name": "Bill Morrison",
+    "email": "bill@example.com"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "NODE_ENV": "production",
+        "ORCHESTRATOR_URL": "http://192.168.68.42:3001"
+      }
+    }
+  },
+  "tools": [],
+  "keywords": ["mcp", "orchestrator", "bridge", "multi-server"],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
